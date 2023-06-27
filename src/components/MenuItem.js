@@ -9,6 +9,8 @@ import Ingredient from './Ingredient';
 import CloseIcon from '@mui/icons-material/Close';
 import '../style/menuItem.css'
 
+const test = true
+
 const style = {
   position: 'absolute',
   top: '50%',
