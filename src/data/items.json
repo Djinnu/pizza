@@ -1,0 +1,221 @@
+[
+    {
+        "id": 1,
+        "name": "RAPLA",
+        "ingredients": "Mango-jalapeno kaste, Juust, Salaami, Peekon, Kebab, Sibul, Sinihallitusjuust, Mango, Küüslauk",
+        "priceSmall": 6.30,
+        "priceLarge": 13.75,
+        "imgUrl": "/images/pizzas/Rapla.png"
+    },
+    {
+        "id": 2,
+        "name": "JÜRI",
+        "ingredients": "BBQ kaste, Juust, Suitsukana, Peekon, Virsik",
+        "priceSmall": 5.55,
+        "priceLarge": 12.55,
+        "imgUrl": "/images/pizzas/Jüri.png"
+    },
+    {
+        "id": 3,
+        "name": "ALLA POLINA",
+        "ingredients": "Juust, Suitsukana, Ananass, Paprika",
+        "priceSmall": 5.10,
+        "priceLarge": 11.90,
+        "imgUrl": "/images/pizzas/Alla Polina.png"
+    },
+    {
+        "id": 4,
+        "name": "MAFIOSO",
+        "ingredients": "Juust, Salaami, Sink, Suitsukana, Rohelised oliivid, Paprika, Sinihallitusjuust, Suitsujuust",
+        "priceSmall": 5.80,
+        "priceLarge": 13.35,
+        "imgUrl": "/images/pizzas/Mafioso.png"
+    },
+    {
+        "id": 5,
+        "name": "CONTRAPOLLO",
+        "ingredients": "Juust, Sink, Suitsukana, Ananass, Paprika, Küüslauk",
+        "priceSmall": 5.55,
+        "priceLarge": 13.05,
+        "imgUrl": "/images/pizzas/Contrapollo.png"
+    },
+    {
+        "id": 6,
+        "name": "TÜRI",
+        "ingredients": "Kaste, Juust, Hakkliha, Sink, Peekon, Marineeritud kurk, Küüslauk, Punane sibul",
+        "priceSmall": 5.65,
+        "priceLarge": 12.85,
+        "imgUrl": "/images/pizzas/Türi.png"
+    },
+    {
+        "id": 7,
+        "name": "ROCCA AL MARE",
+        "ingredients": "Juust, Salaami, Päikesekuivatatud tomat, Kebab, Tomat, Mozzarella, Basiilik",
+        "priceSmall": 6.85,
+        "priceLarge": 15.30,
+        "imgUrl": "/images/pizzas/Rocca al Mare.png"
+    },
+    {
+        "id": 8,
+        "name": "VEGETARIANA",
+        "ingredients": "Juust, Šampinjon, Paprika, Rohelised oliivid, Ananass, Tomat",
+        "priceSmall": 5.10,
+        "priceLarge": 11.50,
+        "imgUrl": "/images/pizzas/Vegetariana.png"
+    },{
+        "id": 9,
+        "name": "SIGARILLO",
+        "ingredients": "Juust, Hakkliha, Paprika, Sibul, Suitsujuust",
+        "priceSmall": 4.75,
+        "priceLarge": 11.20,
+        "imgUrl": "/images/pizzas/Sigarillo.png"
+    },
+    {
+        "id": 10,
+        "name": "TEX-MEX",
+        "ingredients": "Kaste, Juust, Hakkliha, Paprika, Sibul, Jalapeno, Küüslauk",
+        "priceSmall": 5.15,
+        "priceLarge": 11.95,
+        "imgUrl": "/images/pizzas/Tex-mex.png"
+    },
+    {
+        "id": 11,
+        "name": "LUXORY",
+        "ingredients": "Juustuäär, Juust, Suitsukana, Sink, Ananass, Paprika, Krevetid",
+        "priceSmall": 6.40,
+        "priceLarge": 14.50,
+        "imgUrl": "/images/pizzas/Luxory.png"
+    },
+    {
+        "id": 12,
+        "name": "FRANCESCANA",
+        "ingredients": "Juust, Sink, Vorst, Šampinjon, Paprika",
+        "priceSmall": 5.15,
+        "priceLarge": 11.95,
+        "imgUrl": "/images/pizzas/Francescana.png"
+    },{
+        "id": 13,
+        "name": "LASTE PIZZA",
+        "ingredients": "Juust, Vorst",
+        "priceSmall": 4.10,
+        "priceLarge": 9.50,
+        "imgUrl": "/images/pizzas/Laste pizza.png"
+    },
+    {
+        "id": 14,
+        "name": "MARGHERITA",
+        "ingredients": "Kaste, Juust",
+        "priceSmall": 3.80,
+        "priceLarge": 8.90,
+        "imgUrl": "/images/pizzas/Margherita.png"
+    },
+    {
+        "id": 15,
+        "name": "PAIDE",
+        "ingredients": "Juust, Topelt sink, Ananass, Sinihallitusjuust",
+        "priceSmall": 4.95,
+        "priceLarge": 11.95,
+        "imgUrl": "/images/pizzas/Paide.png"
+    },
+    {
+        "id": 16,
+        "name": "BECONARE",
+        "ingredients": "Juust, Salaami, Peekon, Suitsukana, Šampinjon, Virsik, Sinihallitusjuust",
+        "priceSmall": 5.80,
+        "priceLarge": 13.50,
+        "imgUrl": "/images/pizzas/Beconare.png"
+    },{
+        "id": 17,
+        "name": "CARNEOLI",
+        "ingredients": "Kaste, Juust, Hakkliha, Peekon, Marineeritud kurk, Sibul, Küüslauk",
+        "priceSmall": 5.30,
+        "priceLarge": 12.25,
+        "imgUrl": "/images/pizzas/Carneoli.png"
+    },
+    {
+        "id": 18,
+        "name": "PEPPERONI",
+        "ingredients": "Juust, Pepperoni, Mozzarella, Mustad oliivid, Basiilik",
+        "priceSmall": 6.90,
+        "priceLarge": 14.80,
+        "imgUrl": "/images/pizzas/Pepperoni.png"
+    },
+    {
+        "id": 19,
+        "name": "NELJA JUUSTU",
+        "ingredients": "Juust, Mozzarella, Suitsujuust, Sinihallitusjuust, Basiilik",
+        "priceSmall": 6.05,
+        "priceLarge": 15.80,
+        "imgUrl": "/images/pizzas/Nelja juustu.png"
+    },
+    {
+        "id": 20,
+        "name": "CASABLANCA",
+        "ingredients": "Juust, Suitsukana, Tomat, Ananass, Suitsujuust",
+        "priceSmall": 5.25,
+        "priceLarge": 12.25,
+        "imgUrl": "/images/pizzas/Casablanca.png"
+    },{
+        "id": 21,
+        "name": "PAPA CARLO",
+        "ingredients": "Juust, Hakkliha, Shampinjon, Marineeritud kurk, Pärlsibul, Paprika",
+        "priceSmall": 5.55,
+        "priceLarge": 12.80,
+        "imgUrl": "/images/pizzas/Papa carlo.png"
+    },
+    {
+        "id": 22,
+        "name": "VÖNER",
+        "ingredients": "Vegan juust, Vöner nisukebab, Mustad oliivid, Mais, Värske kurk, Punane sibul, Paprika",
+        "priceSmall": 7.90,
+        "priceLarge": 16.65,
+        "imgUrl": "/images/pizzas/Vöner.png"
+    },
+    {
+        "id": 23,
+        "name": "HOLY COW",
+        "ingredients": "Holy Cow kaste, Juust, Pepperoni, Hakkliha, Kimchi, Mais, Jalapeno, Rukola",
+        "priceSmall": 7.15,
+        "priceLarge": 16.55,
+        "imgUrl": "/images/pizzas/Holy cow.png"
+    },
+    {
+        "id": 24,
+        "name": "CHIPOTLE",
+        "ingredients": "Juust, Hakkliha, Suitsukana, Marineeritud punane sibul, Marineeritud kurk, Chipotle kaste, Röstitud sibul, Rukola",
+        "priceSmall": 7.35,
+        "priceLarge": 16.65,
+        "imgUrl": "/images/pizzas/Chipotle.png"
+    },{
+        "id": 25,
+        "name": "BOLLYWOOD",
+        "ingredients": "Karri mango kaste, Juust, Suitsukana, Ananass, Mais, Tšillisädemed, Rukola",
+        "priceSmall": 6.50,
+        "priceLarge": 14.55,
+        "imgUrl": "/images/pizzas/Bollywood.png"
+    },
+    {
+        "id": 26,
+        "name": "CAPRESE",
+        "ingredients": "Juust, Punane marineeritud sibul, Küüslauk, Mozzarella, Tomat, Päikesekuivatatud tomat, Pesto, Basiilik, Tšillisädemed, Rukola",
+        "priceSmall": 7.20,
+        "priceLarge": 15.95,
+        "imgUrl": "/images/pizzas/Caprese.png"
+    },
+    {
+        "id": 27,
+        "name": "MEHHIKO",
+        "ingredients": "Kaste, Cheddari kaste, Juust, Lihapallid, Peekon, Jalapeno, Virsik, Punane marineritud sibul, Tšillisädemed, Nachod, Rukola",
+        "priceSmall": 8.15,
+        "priceLarge": 17.50,
+        "imgUrl": "/images/pizzas/Mehhiko.png"
+    },
+    {
+        "id": 28,
+        "name": "VAHEMERE",
+        "ingredients": "Kaste, Juust, Tuunikala-toorjuustu kreem, Kappar, Krevetid, Mustad oliivid, Küüslauk, Rukola",
+        "priceSmall": 9.45,
+        "priceLarge": 19.95,
+        "imgUrl": "/images/pizzas/Vahemere.png"
+    }
+]

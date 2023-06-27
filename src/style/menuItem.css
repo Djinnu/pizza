@@ -1,0 +1,12 @@
+.btn-footer {
+    width: 50px;
+    height: 50px;
+    border-radius: 50px;
+    border-style: none;
+    background-color: white;
+    cursor: pointer;
+}
+
+.btn-footer:hover {
+    background-color: #dcdcdc;
+}
