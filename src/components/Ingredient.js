@@ -1,6 +1,5 @@
 import AddIcon from '@mui/icons-material/Add';
 import RemoveIcon from '@mui/icons-material/Remove';
-import { useState } from 'react'
 
 const buttonStyles = {
     borderRadius: "5px",
@@ -20,8 +19,8 @@ const buttonDisabled = {
   height: "32px",
 }
 
-const Ingredient = ({extra, extraIngredient, ingredient, removeIngredients, removedIngredientsCount, addedIngredientsCount, addIngredients, addExtraIngredients}) => { 
-  console.log(extraIngredient.name)
+const Ingredient = ({extra, extraIngredient, ingredient, removeIngredients, removedIngredientsCount, addedIngredientsCount, addIngredients, addExtraIngredients, removeExtraIngredients}) => { 
+  
   return (
         extra ? <div style={{display: "flex", justifyContent: "space-between", padding: "5px 0px", borderBottom: "1px solid gray", alignItems: "baseline"}}>
                     <div>
@@ -33,7 +32,7 @@ const Ingredient = ({extra, extraIngredient, ingredient, removeIngredients, remo
                     <div style={{width: "100px", display: "flex", justifyContent:"flex-end", alignItems:"center", marginRight: 7}}>
                         {extraIngredient.quantity > 0 && 
                         <div>
-                          <button style={removedIngredientsCount === 2 ? {...buttonDisabled, color: 'red'} : extraIngredient.quantity === 0 ? {...buttonDisabled, color: 'red'} : {...buttonStyles, color: 'red'}} onClick={()=>removeIngredients(extraIngredient.id)}><RemoveIcon sx={{fontSize:'14px'}}/></button>
+                          <button style={removedIngredientsCount === 2 ? {...buttonDisabled, color: 'red'} : extraIngredient.quantity === 0 ? {...buttonDisabled, color: 'red'} : {...buttonStyles, color: 'red'}} onClick={()=>removeExtraIngredients(extraIngredient.id)}><RemoveIcon sx={{fontSize:'14px'}}/></button>
                           <span style={{margin: "0 10px"}}>{extraIngredient.quantity}</span>
                         </div>
                         }

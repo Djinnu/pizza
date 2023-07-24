@@ -1,7 +1,7 @@
 import * as React from 'react';
 import Popover from '@mui/material/Popover';
 import Typography from '@mui/material/Typography';
-import Button from '@mui/material/Button';
+import IconButton from '@mui/material/IconButton';
 import PopoverOption from './PopoverOption';
 
 export default function BasicPopover() {
@@ -20,9 +20,9 @@ export default function BasicPopover() {
 
   return (
     <div>
-      <Button aria-describedby={id} variant="contained" onClick={handleClick}>
-        <img src="/images/estonia.png" alt="flag"/>
-      </Button>
+      <IconButton onClick={handleClick} sx={{width: '40px', height: '40px',':hover':{backgroundColor: '#e0e0e0'}}}>
+        <img src="/images/estonia.png" alt="flag" style={{boxShadow: "0px 0px 5px #888888"}}/>
+      </IconButton>
       <Popover
         id={id}
         open={open}

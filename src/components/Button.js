@@ -4,7 +4,7 @@ const buttonStyles = {
     border: "none",
     padding: "6px 30px",
     fontWeight: "bold",
-    marginRight: "15px"
+    marginRight: "10px"
 
 }
 
@@ -14,7 +14,7 @@ const Button = ({text, onClick, activeName, orderSize, active}) => {
   const size = orderSize ? text.split(" ")[0] : false
 
   return (
-    active ? <button style={{...buttonStyles, backgroundColor: "#cc0000", color: "white"}}>{text}</button> :
+    active ? <button style={{...buttonStyles, backgroundColor: "#cc0000", color: "white"}} onClick={onClick}>{text}</button> :
     size ? <button style={orderSize === size ? {...buttonStyles, backgroundColor: "#cc0000", color: "white"} : buttonStyles} onClick={onClick}>{text}</button> :
            <button style={newActiveName === text ? {...buttonStyles, backgroundColor: "#cc0000", color: "white"} : buttonStyles} onClick={onClick}>{text}</button>
   )
