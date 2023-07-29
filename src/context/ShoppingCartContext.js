@@ -1,5 +1,6 @@
 import { createContext, useContext, useState } from 'react';
 import location from '../data/locations.json';
+import menuItems from "../data/items.json"
 
 const defaultLocation = location[9]
 
@@ -14,6 +15,13 @@ export function useShoppingCart() {
 export function ShoppingCartProvider({ children }) {
     const [cartItems, setCartItems] = useState([])
     const [location, setLocation] = useState(defaultLocation)
+    const [menu, setMenu] = useState(menuItems)
+    const [mainActive, setMainActive] = useState("Pitsad")
+
+    const handleMainActiveButton = (e) => {
+        const targeted = e.target.innerHTML
+        setMainActive(targeted)
+    }
 
     const addItem = (item) => {
         const newItem = {...item}
@@ -43,7 +51,7 @@ export function ShoppingCartProvider({ children }) {
     }
 
     return (
-        <ShoppingCartContext.Provider value={{addItem, cartItems, increaseQuantity, decreaseQuantity, location, setLocation}}>
+        <ShoppingCartContext.Provider value={{addItem, cartItems, increaseQuantity, decreaseQuantity, location, setLocation, menu, setMenu, mainActive, handleMainActiveButton}}>
             {children}
         </ShoppingCartContext.Provider>
     )

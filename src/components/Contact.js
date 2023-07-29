@@ -2,10 +2,15 @@ import Stack from '@mui/material/Stack';
 import { useShoppingCart } from '../context/ShoppingCartContext';
 import FacebookRoundedIcon from '@mui/icons-material/FacebookRounded';
 import LocalPhoneRoundedIcon from '@mui/icons-material/LocalPhoneRounded';
+import LocationModule from './LocationModule';
+import { useState } from 'react'
 
 
 const Contact = () => {
   const {location} = useShoppingCart()
+  const [open, setOpen] = useState(false);
+  const handleOpen = () => setOpen(true);
+  const handleClose = () => setOpen(false);
   
   return (
     <div>
@@ -23,7 +28,7 @@ const Contact = () => {
                             <button style={{width: '15%', borderRadius: '10px', border: '1px solid #dcdcdc', backgroundColor: 'white'}}><FacebookRoundedIcon/></button>
                         </Stack>
                     </div>
-                    <button style={{width: '100%', fontSize: '20px', padding: '18px', color: 'white', backgroundColor: '#cc0000', border: 'none', borderRadius: '10px'}}>Vaheta asukohta</button>
+                    <button onClick={handleOpen} style={{width: '100%', fontSize: '20px', padding: '18px', color: 'white', backgroundColor: '#cc0000', border: 'none', borderRadius: '10px'}}>Vaheta asukohta</button>
                 </Stack>
             </section>
             <section style={{width: 540}}>
@@ -39,6 +44,7 @@ const Contact = () => {
                     })}
                 </Stack>
             </section>
+            <LocationModule open={open} handleClose={handleClose}/>
         </div>
     </div>
   )

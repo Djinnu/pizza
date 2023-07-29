@@ -1,12 +1,15 @@
-import React from 'react'
-import menuItems from "../data/items.json"
+//import { useState } from 'react'
+//import menuItems from "../data/items.json"
 import MenuItem from './MenuItem'
 import Grid from '@mui/material/Grid';
+import { useShoppingCart } from '../context/ShoppingCartContext';
 
 const Menu = () => {
+  const {menu} = useShoppingCart()
+
   return (
     <Grid container spacing={1}>
-        {menuItems.map((item, i) => {
+        {menu.map((item, i) => {
            return <Grid item xs="auto" key={i}>
                     <MenuItem {...item} />
                   </Grid>

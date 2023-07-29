@@ -9,14 +9,14 @@ const buttonStyles = {
 }
 
 
-const Button = ({text, onClick, activeName, orderSize, active}) => {
+const Button = ({text, onClick, activeName, orderSize, active, mainActive}) => {
   const newActiveName = activeName ? activeName[0].toUpperCase() + activeName.slice(1, activeName.length) : 'default'
   const size = orderSize ? text.split(" ")[0] : false
 
   return (
     active ? <button style={{...buttonStyles, backgroundColor: "#cc0000", color: "white"}} onClick={onClick}>{text}</button> :
     size ? <button style={orderSize === size ? {...buttonStyles, backgroundColor: "#cc0000", color: "white"} : buttonStyles} onClick={onClick}>{text}</button> :
-           <button style={newActiveName === text ? {...buttonStyles, backgroundColor: "#cc0000", color: "white"} : buttonStyles} onClick={onClick}>{text}</button>
+           <button style={mainActive === text ? {...buttonStyles, backgroundColor: "#cc0000", color: "white"} : newActiveName === text ? {...buttonStyles, backgroundColor: "#cc0000", color: "white"} : buttonStyles} onClick={onClick}>{text}</button>
   )
 }
 
