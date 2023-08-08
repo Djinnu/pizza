@@ -1,4 +1,3 @@
-import { useState } from 'react'
 import CarouselComponent from './CarouselComponent'
 import Filter from './Filter'
 import Menu from './Menu'

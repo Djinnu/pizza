@@ -1,6 +1,7 @@
-import { createContext, useContext, useState } from 'react';
+import { createContext, useContext, useState, useEffect } from 'react';
 import location from '../data/locations.json';
 import menuItems from "../data/items.json"
+import { useLocalStorage } from '../hooks/useLocalStorage';
 
 const defaultLocation = location[9]
 
@@ -13,10 +14,19 @@ export function useShoppingCart() {
 
 //This is the radio station that broadcasts the context
 export function ShoppingCartProvider({ children }) {
-    const [cartItems, setCartItems] = useState([])
-    const [location, setLocation] = useState(defaultLocation)
+    const [cartItems, setCartItems] = useLocalStorage('shopping-cart', [])
+    const [location, setLocation] = useState(()=> {
+        const data = localStorage.getItem('MY_LOCATION')
+        if(data !== null) return JSON.parse(data)
+        return defaultLocation}
+    )    
     const [menu, setMenu] = useState(menuItems)
     const [mainActive, setMainActive] = useState("Pitsad")
+
+    useEffect(() => {
+        localStorage.setItem('MY_LOCATION', JSON.stringify(location))
+    }, [location])
+
 
     const handleMainActiveButton = (e) => {
         const targeted = e.target.innerHTML

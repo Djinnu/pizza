@@ -10,13 +10,15 @@ import { NavLink } from "react-router-dom"
 import { useShoppingCart } from '../context/ShoppingCartContext';
 import { formatCurrency } from '../utilities/formatCurrency'
 import LocationModule from './LocationModule';
+import { useAuth0 } from '@auth0/auth0-react';
 
 const Header = () => {
   const [open, setOpen] = useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
+  const { loginWithRedirect, isAuthenticated } = useAuth0()
 
-  const {cartItems, location, setLocation} = useShoppingCart()
+  const {cartItems, location} = useShoppingCart()
   const totalCost = cartItems.reduce((acc, c) => acc + ((c.price + c.extraIngCost) * c.quantity), 0)
 
   return (
@@ -33,19 +35,29 @@ const Header = () => {
         <div className="right-header">
             <NavLink to="/" 
                         className={({ isActive, isPending }) => isPending ? "pending" : isActive ? "header-tabs active" : "header-tabs"}>
-                <LocalPizzaOutlinedIcon/>
-                Tellimus
+                  <LocalPizzaOutlinedIcon/>
+                  Tellimus        
             </NavLink>
             <NavLink to="/contact" 
                         className={({ isActive, isPending }) => isPending ? "pending" : isActive ? "header-tabs active" : "header-tabs"}>
                 <PlaceOutlinedIcon/>
                 Kontakt
             </NavLink>
-            <NavLink to="/login"
-                        className={({ isActive, isPending }) => isPending ? "pending" : isActive ? "header-tabs active" : "header-tabs"}>
-                <AccountCircleOutlinedIcon/>
-                Sisene
-            </NavLink>
+              {isAuthenticated ? <NavLink to="/profile"
+                                    className={({ isActive, isPending }) => isPending ? "pending" : isActive ? "header-tabs active" : "header-tabs"}>
+                                    <div style={{display: 'flex', alignItems:'center', gap: 5}}>
+                                      <AccountCircleOutlinedIcon/>
+                                      Profiil
+                                    </div>  
+                                </NavLink> :
+                                <NavLink to="/login"
+                                            className={({ isActive, isPending }) => isPending ? "pending" : isActive ? "header-tabs active" : "header-tabs"}>
+                                    <div style={{display: 'flex', alignItems:'center', gap: 5}} onClick={() => loginWithRedirect()}>
+                                      <AccountCircleOutlinedIcon/>
+                                      Sisene
+                                    </div>  
+                                </NavLink>
+            }
             <NavLink to="/cart"
                         className={({ isActive, isPending }) => isPending ? "pending" : isActive ? "header-tabs active" : "header-tabs"}>
                 <ShoppingBasketOutlinedIcon/>

@@ -1,24 +1,24 @@
-.btn-footer {
-    width: 50px;
-    height: 50px;
-    border-radius: 50px;
+.btn-drink {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
     border-style: none;
     background-color: white;
     cursor: pointer;
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 25px;
+    padding: 5px;
 }
 
-.btn-footer:hover {
+.btn-drink:hover {
     background-color: #dcdcdc;
 }
 
-.btn-disabled {
-    width: 50px;
-    height: 50px;
-    border-radius: 50px;
+.btn-drink-disabled {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
     border-style: none;
     background-color: white;
     cursor: 'default';
@@ -27,5 +27,5 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 25px;
+    padding: 5px;
 }
