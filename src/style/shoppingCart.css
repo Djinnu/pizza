@@ -1,0 +1,32 @@
+.drinkOptions {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 7px;
+    background-color: #ffffff;
+    border: 1px solid #dcdcdc;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.drinkOptions:hover {
+    background-color: #dcdcdc;
+    cursor: pointer;
+}
+
+.purchase {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    width: 100%;
+    height: 66px;
+    background-color: #cc0000;
+    color: white;
+    border-radius: 10px;
+    border: none;
+    cursor: pointer;
+    font-size: 22px;
+    margin-top: 25px;
+    margin-bottom: -50px;
+}

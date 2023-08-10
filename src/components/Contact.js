@@ -15,7 +15,7 @@ const Contact = () => {
   return (
     <div>
         <div>
-            <h1 style={{paddingBottom: 30, textAlign: "center", borderBottom: "1px solid #dcdcdc", margin: "40px 15px"}}>Kontakt</h1>
+            <h1 style={{paddingBottom: 30, textAlign: "center", borderBottom: "1px solid #dcdcdc", margin: "0px 15px 40px"}}>Kontakt</h1>
         </div>
         <div style={{display: 'flex', justifyContent: 'center', gap: 60}}>
             <section style={{width: 540}}>
@@ -24,11 +24,11 @@ const Contact = () => {
                     <p style={{fontSize: '20px'}}>{location.address}</p>
                     <div style={{width: '100%'}}>
                         <Stack direction='row' spacing={2} justifyContent='space-between'>
-                            <button style={{width: '80%', padding: '18px', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '5px', borderRadius: '10px', border: '1px solid #dcdcdc', backgroundColor: 'white', fontSize: '20px'}}><LocalPhoneRoundedIcon/>{location.phone}</button>
-                            <button style={{width: '15%', borderRadius: '10px', border: '1px solid #dcdcdc', backgroundColor: 'white'}}><FacebookRoundedIcon/></button>
+                            <button style={{width: '80%', padding: '18px', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '5px', borderRadius: '10px', border: '1px solid #dcdcdc', backgroundColor: 'white', fontSize: '20px', cursor: 'pointer'}}><LocalPhoneRoundedIcon/>{location.phone}</button>
+                            <button style={{width: '15%', borderRadius: '10px', border: '1px solid #dcdcdc', backgroundColor: 'white', cursor: 'pointer'}}><FacebookRoundedIcon/></button>
                         </Stack>
                     </div>
-                    <button onClick={handleOpen} style={{width: '100%', fontSize: '20px', padding: '18px', color: 'white', backgroundColor: '#cc0000', border: 'none', borderRadius: '10px'}}>Vaheta asukohta</button>
+                    <button onClick={handleOpen} style={{width: '100%', fontSize: '20px', padding: '18px', color: 'white', backgroundColor: '#cc0000', border: 'none', borderRadius: '10px', cursor: 'pointer'}}>Vaheta asukohta</button>
                 </Stack>
             </section>
             <section style={{width: 540}}>

@@ -3,8 +3,12 @@ import { useAuth0 } from '@auth0/auth0-react';
 import Stack from '@mui/material/Stack';
 
 const Profile = () => {
-  const { user, logout } = useAuth0();
-  console.log(user)
+  const { user, logout, isLoading } = useAuth0();
+
+  if (isLoading) {
+    return <div>Loading ...</div>;
+  }
+
   return (
     <div style={{width: 500, margin: '50px auto'}}>
         <Stack direction="row" justifyContent="space-between">

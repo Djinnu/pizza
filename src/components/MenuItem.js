@@ -12,6 +12,11 @@ import '../style/menuItem.css'
 import { useShoppingCart } from '../context/ShoppingCartContext';
 import Fade from '@mui/material/Fade';
 import Backdrop from '@mui/material/Backdrop';
+import Snackbar from '@mui/material/Snackbar';
+import Alert from '@mui/material/Alert';
+import CheckCircleOutlineIcon from '@mui/icons-material/CheckCircleOutline';
+import Paper from '@mui/material/Paper';
+import Slide from '@mui/material/Slide';
 
 const style = {
   position: 'absolute',
@@ -31,6 +36,10 @@ const taimsed = [["Ananass", 0.9], ["Basiilik", 0.9] , ["Jalapeno", 0.9], ["Kapp
 const kastmed = [["BBQ kaste", 1.5], ["Cheddar kaste", 1.5], ["Chipotle kaste", 2.5], ["Holy Cow kaste", 1.5], ["Karri mango kaste", 1.5], ["Mango-jalapeno kaste", 2.5]]
 const juust = [["Mozzarella", 2.5], ["Sinihallitusjuust", 0.9], ["Vegan juust", 3.8], ["Suitsujuust", 0.9], ["Juustuäär", 1.5]]
 
+
+function SlideTransition(props) {
+  return <Slide {...props} direction="down" />;
+}
 
 const MenuItem = ({id, name, ingredients, priceSmall, priceLarge, imgUrl}) => {
   const {addItem} = useShoppingCart()
@@ -89,7 +98,8 @@ const MenuItem = ({id, name, ingredients, priceSmall, priceLarge, imgUrl}) => {
   const [open, setOpen] = useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
-
+  const [snackOpen, setSnackOpen] = useState({snackIsOpen: false, vertical: 'top', horizontal: 'center', Transition: SlideTransition})
+  const { vertical, horizontal, snackIsOpen } = snackOpen
   const [activeName, setActiveName] = useState('Liha')
   const [orderSize, setOrderSize] = useState("Suur")
   const [removedIngredientsCount, setRemovedIngredientsCount] = useState(0)
@@ -100,6 +110,16 @@ const MenuItem = ({id, name, ingredients, priceSmall, priceLarge, imgUrl}) => {
   const [addedIngredients, setAddedIngredients] = useState([])
   const [removedIngredients, setRemovedIngredients] = useState([])
   const [quantity, setQuantity] = useState(1)
+  const handleSnackClick = () => setSnackOpen({...snackOpen, snackIsOpen: true})
+  const handleSnackClose = (event, reason) => {
+    if (reason === 'clickaway') {
+      return;
+    }
+
+    setSnackOpen({...snackOpen, snackIsOpen: false});
+  };
+
+
 
   const handleActiveButton = (e) => {
     const targeted = e.target.innerHTML
@@ -360,11 +380,26 @@ const MenuItem = ({id, name, ingredients, priceSmall, priceLarge, imgUrl}) => {
               active={true} 
               onClick={()=> {
                 addItem({id, name, addedIngredients, removedIngredients, orderSize, quantity, extraIngCost, price: orderSize === "Suur" ? priceLarge + extraIngCost : priceSmall + extraIngCost})
-                handleClose()}}></Button>
+                handleClose()
+                handleSnackClick()}}></Button>
             </div>
           </Box>
         </Fade>
       </Modal>
+      <Snackbar 
+        open={snackOpen.snackIsOpen} 
+        autoHideDuration={2000} 
+        onClose={handleSnackClose} 
+        anchorOrigin={{ vertical, horizontal }}
+        TransitionComponent={snackOpen.Transition}>
+        <Paper elevation={6}>
+          <Alert 
+            icon={<CheckCircleOutlineIcon fontSize="inherit" color='success'/>}
+            onClose={handleSnackClose} severity="success" sx={{ width: '100%', backgroundColor: 'white', color: 'black' }} variant='filled'>
+            Toode lisatud ostukorvi!
+          </Alert>
+        </Paper>
+      </Snackbar>
     </div>
   )
 }

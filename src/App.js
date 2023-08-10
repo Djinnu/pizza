@@ -6,6 +6,7 @@ import Contact from './components/Contact';
 import ShoppingCart from './components/ShoppingCart';
 import { ShoppingCartProvider } from './context/ShoppingCartContext';
 import Profile from './components/Profile';
+import Footer from './components/Footer';
 
 function App() {
   
@@ -19,6 +20,7 @@ function App() {
           <Route path="/cart" element={<ShoppingCart />}/>
           <Route path='/profile' element={<Profile />}/>
         </Routes>
+        <Footer/>
       </div>
     </ShoppingCartProvider>
   );

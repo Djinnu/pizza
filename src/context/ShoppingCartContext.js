@@ -34,8 +34,20 @@ export function ShoppingCartProvider({ children }) {
     }
 
     const addItem = (item) => {
-        const newItem = {...item}
-        setCartItems([...cartItems, newItem])  
+        const foundItem = cartItems.find(x => x.id === item.id)
+        if(foundItem) {
+            setCartItems(cartItems.map(x => {
+                if(x.id === item.id) {
+                    let newItem = {...x, quantity: x.quantity + 1}
+                    return newItem
+                } else {
+                    return x
+                }
+            }))
+        } else {
+            const newItem = {...item}
+            setCartItems([...cartItems, newItem])  
+        }
     }
 
     const increaseQuantity = (id) => {
@@ -61,7 +73,7 @@ export function ShoppingCartProvider({ children }) {
     }
 
     return (
-        <ShoppingCartContext.Provider value={{addItem, cartItems, increaseQuantity, decreaseQuantity, location, setLocation, menu, setMenu, mainActive, handleMainActiveButton}}>
+        <ShoppingCartContext.Provider value={{addItem, cartItems, increaseQuantity, decreaseQuantity, location, setLocation, menu, setMenu, mainActive, handleMainActiveButton, setCartItems}}>
             {children}
         </ShoppingCartContext.Provider>
     )
