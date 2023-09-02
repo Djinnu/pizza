@@ -10,6 +10,10 @@ import Stack from '@mui/material/Stack';
 import { NavLink } from "react-router-dom"
 import BasicPopover from './Popover';
 import AccountCircleOutlinedIcon from '@mui/icons-material/AccountCircleOutlined';
+import { useAuth0 } from '@auth0/auth0-react';
+import { useState, useEffect } from 'react';
+import { calculateDistance } from '../utilities/calculateDistance';
+import { useShoppingCart } from '../context/ShoppingCartContext';
 
 const style = {
     position: 'absolute',
@@ -27,6 +31,34 @@ const style = {
 };
 
 const LocationModule = ({open, handleClose}) => {
+  const { loginWithRedirect } = useAuth0()
+  const [currentPosition, setCurrentPosition] = useState(null);
+  const { t } = useShoppingCart()
+  
+  useEffect(() => {
+    if('geolocation' in navigator) {
+      navigator.geolocation.getCurrentPosition(
+        (position) => {
+          const { latitude, longitude } = position.coords;
+          setCurrentPosition({ latitude, longitude})
+        },
+        (error) => console.error("Error getting geolocation:", error.message)
+      )
+    } else {
+      console.error("Geolocation not available");
+    }
+  }, [])
+
+  const distances = currentPosition ? locationOptions.map((place) => {
+    const distance = calculateDistance(
+        currentPosition.latitude,
+        currentPosition.longitude,
+        place.location.latitude,
+        place.location.longitude
+    );
+    return { ...place, distance}
+  }) : locationOptions
+
   return (
     <Modal
         open={open}
@@ -36,15 +68,15 @@ const LocationModule = ({open, handleClose}) => {
     >
         <Box sx={style}>
         <div style={{display: 'flex', alignItems: 'center'}}>
-            <ArrowBackIcon sx={{borderRadius: '50%', fontSize: '38px', padding: '5px', ":hover":{backgroundColor: '#e0e0e0'}}}/>
+            <ArrowBackIcon sx={{borderRadius: '50%', fontSize: '38px', padding: '5px', ":hover":{backgroundColor: '#e0e0e0'}}} onClick={handleClose}/>
             <BasicPopover/>
             <NavLink to="/login"
-                className= "header-tabs" style={{marginLeft: 'auto'}}>
+                className= "header-tabs" style={{marginLeft: 'auto'}} onClick={loginWithRedirect}>
             <AccountCircleOutlinedIcon/>
-            Sisene
+            {t('location.sisene')}
             </NavLink>
         </div>
-        <h1 style={{fontSize: '28px', marginBottom: '30px'}}>Vali asukoht</h1>
+        <h1 style={{fontSize: '28px', marginBottom: '30px'}}>{t('location.valiAsukoht')}</h1>
         <TextField
             hiddenLabel
             fullWidth
@@ -61,7 +93,7 @@ const LocationModule = ({open, handleClose}) => {
             variant="filled"
         />
         <Stack spacing={2} mt={2}>
-            {locationOptions.map(loc => <LocationOption {...loc} key={loc.id} onClick={handleClose}/>)}
+            {distances.map(loc => <LocationOption {...loc} key={loc.id} onClick={handleClose}/>)}
         </Stack>
         </Box>
     </Modal>

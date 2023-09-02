@@ -11,7 +11,7 @@ const Main = () => {
     <main>
         <CarouselComponent/>
         <Filter/>
-        {mainActive === "Joogid" ? <Drinks/> : <Menu/>}
+        {(mainActive === "Joogid" || mainActive === "Drinks") ? <Drinks/> : (mainActive === "Pitsad" || mainActive === "Pizza") ? <Menu/> : ""}
     </main>
   )
 }

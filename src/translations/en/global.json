@@ -1,0 +1,151 @@
+{
+    "header": {
+        "tellimus": "Order",
+        "kontakt": "Contact",
+        "sisene": "Sign in",
+        "ostukorv": "Cart",
+        "profiil": "Profile"
+    },
+    "filter": {
+        "pitsad": "Pizza",
+        "joogid": "Drinks",
+        "magus": "Sweets",
+        "kõik": "All",
+        "sealiha": "Pork",
+        "veiseliha": "Beef",
+        "kanaliha": "Chicken",
+        "taimne": "Vegetarian",
+        "mereannid": "Seafood"
+    },
+    "footer": {
+        "tingimused": "Terms and conditions",
+        "kinkekaart": "Gift card",
+        "templikaart": "Stampcard",
+        "allergeenid": "Allergens",
+        "frantsiis": "Franchising",
+        "meieLugu": "Our story",
+        "sponsorlus": "Sponsorship",
+        "töökohad": "Vacancies",
+        "pizzakiosk": "Pizzakiosk",
+        "privaatsus": "Privacy policy",
+        "kontakt": "Contact"
+    },
+    "location": {
+        "valiAsukoht": "Choose location",
+        "sisene": "Sign in"
+    },
+    "open": {
+        "Esmaspäev": "Monday",
+        "Teisipäev": "Tuesday",
+        "Kolmapäev": "Wednesday",
+        "Neljapäev": "Thursday",
+        "Reede": "Friday",
+        "Laupäev": "Saturday",
+        "Pühapäev": "Sunday"
+    },
+    "contact": {
+        "kontakt": "Contact",
+        "lahtiolekuAjad": "Opening hours",
+        "vahetaAsukohta": "Change location"
+    },
+    "cart": {
+        "ostukorv": "Cart",
+        "kiosk": "Sale point",
+        "kättesaamisaeg": "Pick up time",
+        "tühi": "Your cart is currently empty.",
+        "kokkuvõte": "Order summary",
+        "soovitab": "Pizzakiosk recommends",
+        "kokku": "Total",
+        "makse": "Payment",
+        "tagasi": "Return to menu"
+    },
+    "ingredients": {
+        "Mango-jalapeno kaste": "Mango and jalapeno sauce",
+        "Juust": "Cheese",
+        "Salaami": "Salami",
+        "Peekon": "Bacon",
+        "Kebab": "Kebab meat",
+        "Sibul": "Onion",
+        "Sinihallitusjuust": "Blue cheese",
+        "Küüslauk": "Garlic",
+        "Mango": "Mango",
+        "BBQ kaste": "Barbeque sauce",
+        "Suitsukana": "Smoked chicken",
+        "Virsik": "Peach",
+        "Ananass": "Pineapple",
+        "Paprika": "Sweet pepper",
+        "Rohelised oliivid": "Green olives",
+        "Suitsujuust": "Smoked cheese",
+        "Kaste": "Sauce",
+        "Marineeritud kurk": "Pickles",
+        "Punane sibul": "Red onion",
+        "Päikesekuivatatud tomat": "Sun-dried tomatoes",
+        "Mozzarella": "Mozzarella",
+        "Basiilik": "Basil",
+        "Šampinjon": "Champignons",
+        "Tomat": "Tomatoes",
+        "Hakkliha": "Minced meat",
+        "Jalapeno": "Jalapeño",
+        "Juustuäär": "Cheese-stuffed crust",
+        "Krevetid": "Shrimps",
+        "Vorst": "Sausage",
+        "Topelt sink": "Double ham",
+        "Mustad oliivid": "Black olives",
+        "Pärlsibul": "Pearl onions",
+        "Vegan juust": "Vegan topping",
+        "Vöner nisukebab": "Vöner vegan kebab",
+        "Mais": "Corn",
+        "Värske kurk": "Cucumber",
+        "Holy Cow kaste": "Holy Cow sauce",
+        "Kimchi": "Kimchi",
+        "Rukola": "Ruccola",
+        "Marineeritud punane sibul": "Marinated red onion",
+        "Chipotle kaste": "Chipotle sauce",
+        "Röstitud sibul": "Roasted onion",
+        "Karri mango kaste": "Curry and mango sauce",
+        "Tšillisädemed": "Chilli explosion",
+        "Pesto": "Pesto",
+        "Cheddari kaste": "Cheddar sauce",
+        "Nachod": "Nachos",
+        "Lihapallid": "Meatballs",
+        "Tuunikala-toorjuustu kreem": "Tuna-cream cheese cream",
+        "Kappar": "Capers",
+        "Sink": "Ham",
+        "Pepperoni": "Pepperoni"
+    },
+    "alert": {
+        "hoiatus": "Warning",
+        "text": "Do you really want to remove this item?",
+        "kinnita": "Confirm",
+        "tühista": "Cancel"
+    },
+    "snackbar": {
+        "message": "Product added to cart"
+    },
+    "popover": {
+        "message": "Pick a language"
+    },
+    "menuItem": {
+        "alates": "from",
+        "koostis": "Components",
+        "eemalda": "Remove up to 2 pcs",
+        "lisa": "Add up to 4 pcs",
+        "lisaKoostisosa": "Add the ingredient",
+        "lisaOstukorvi": "Add to cart "
+    },
+    "profile": {
+        "tere": "Hello",
+        "logOut": "Log out",
+        "andmed": "My data",
+        "nimi": "Name",
+        "perekonnanimi": "Surname",
+        "e-mail": "Email",
+        "kinnita": "Confirm"  
+    },
+    "drinks": {
+        "lisa": "Add"
+    },
+    "locationOption": {
+        "ooteaeg": "Waiting time"
+    }
+}

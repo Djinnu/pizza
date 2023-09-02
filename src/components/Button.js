@@ -5,7 +5,6 @@ const buttonStyles = {
     padding: "6px 30px",
     fontWeight: "bold",
     marginRight: "10px"
-
 }
 
 

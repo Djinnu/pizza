@@ -1,19 +1,20 @@
-import React from 'react'
+import '../style/popoverOptions.css';
+import { useShoppingCart } from '../context/ShoppingCartContext';
 
-const popoverStyles = {
-    display: "flex",
-    borderTop: "1px solid #c2c2c2",
-    padding: "10px",
-    width: "250px"
-}
+const PopoverOption = ({language, src, lang, handleClose, handleFlag}) => {
+  const { handleChangeLanguage, setMainActive, mainActive } = useShoppingCart()
 
-const PopoverOption = ({language, src}) => {
   return (
-    <div style={popoverStyles}>
+    <div className='popover' onClick={(e)=> {
+      handleFlag(src)
+      handleChangeLanguage(lang)
+      handleClose()
+      setMainActive(mainActive === "Pitsad" ? "Pizza" : "Pitsad")
+      }}>
         <div>
-          <img src={src} alt={language} style={{boxShadow: "0px 0px 5px #888888"}}/>
+          <img src={src} alt={language} style={{boxShadow: "0px 0px 5px #888888", display: 'block'}}/>
         </div>
-        <span style={{marginLeft: '10px'}}>{language}</span>
+        <span>{language}</span>
     </div>
   )
 }

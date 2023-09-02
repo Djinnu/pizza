@@ -10,7 +10,7 @@ import { formatCurrency } from '../utilities/formatCurrency'
 
 const DrinkItem = ({id, name, price, imgUrl}) => {
   const [quantity, setQuantity] = useState(1)
-  const { addItem } = useShoppingCart()
+  const { addItem, t } = useShoppingCart()
 
   const increaseQuantity = () => {
     let currQuantity = quantity
@@ -27,8 +27,8 @@ const DrinkItem = ({id, name, price, imgUrl}) => {
   return (
     <div style={{display: 'flex', flexDirection: 'column', width: 275, heigth: 338, alignItems: 'center', gap: '10px'}}>
         <img style={{width: 220, height: 220}} src={imgUrl} alt={name}/>
-        <h3>{name}</h3>
-        <p>{formatCurrency(price)}</p>
+        <h3 style={{fontFamily: 'Lora, serif'}}>{name}</h3>
+        <p style={{color: '#cc0000', fontWeight: 'bolder'}}>{formatCurrency(price)}</p>
         <Stack direction='row' spacing={2}>
           <div style={{display: 'flex', justifyContent: 'space-between', alignItems: 'center', borderRadius: 50, border: "1px solid #dcdcdc", height: 32}}>
             <button className={quantity === 1 ? "btn-drink-disabled" : "btn-drink"} onClick={()=>decreaseQuantity()}><RemoveIcon sx={{color: "#cc0000"}} fontSize="xs"/></button>
@@ -39,7 +39,7 @@ const DrinkItem = ({id, name, price, imgUrl}) => {
             onClick={()=> {addItem({id, name, price, quantity, removedIngredients: [], addedIngredients: [], extraIngCost: 0})
                            setQuantity(1)}}>
             <ShoppingBasketOutlinedIcon/>
-            Lisa
+            {t('drinks.lisa')}
           </button>
         </Stack>
     </div>

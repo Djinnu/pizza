@@ -5,6 +5,24 @@ import App from './App';
 import { BrowserRouter } from 'react-router-dom';
 import { Auth0Provider } from '@auth0/auth0-react';
 
+import global_en from "./translations/en/global.json";
+import global_est from "./translations/est/global.json";
+import i18next from 'i18next';
+import { I18nextProvider } from 'react-i18next';
+
+i18next.init({
+  interpolation: {escapeValue: true},
+  lng: "est",
+  resources: {
+    en: {
+      global: global_en
+    },
+    est: {
+      global: global_est
+    }
+  }
+})
+
 const domain = process.env.REACT_APP_AUTH0_DOMAIN;
 const clientId = process.env.REACT_APP_AUTH0_CLIENT_ID;
 
@@ -15,7 +33,9 @@ root.render(
     clientId={clientId}
     redirectUri={window.location.origin}>
     <BrowserRouter>
-      <App />
+      <I18nextProvider i18n={i18next}>
+        <App />
+      </I18nextProvider>
     </BrowserRouter>
   </Auth0Provider>
 );

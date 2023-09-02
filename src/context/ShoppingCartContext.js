@@ -2,6 +2,7 @@ import { createContext, useContext, useState, useEffect } from 'react';
 import location from '../data/locations.json';
 import menuItems from "../data/items.json"
 import { useLocalStorage } from '../hooks/useLocalStorage';
+import { useTranslation } from 'react-i18next';
 
 const defaultLocation = location[9]
 
@@ -22,11 +23,15 @@ export function ShoppingCartProvider({ children }) {
     )    
     const [menu, setMenu] = useState(menuItems)
     const [mainActive, setMainActive] = useState("Pitsad")
+    const [t, i18n] = useTranslation("global")
 
     useEffect(() => {
         localStorage.setItem('MY_LOCATION', JSON.stringify(location))
     }, [location])
 
+    const handleChangeLanguage = (lang) => {
+        i18n.changeLanguage(lang)
+    }
 
     const handleMainActiveButton = (e) => {
         const targeted = e.target.innerHTML
@@ -73,7 +78,20 @@ export function ShoppingCartProvider({ children }) {
     }
 
     return (
-        <ShoppingCartContext.Provider value={{addItem, cartItems, increaseQuantity, decreaseQuantity, location, setLocation, menu, setMenu, mainActive, handleMainActiveButton, setCartItems}}>
+        <ShoppingCartContext.Provider value={{addItem, 
+                                              cartItems,
+                                              increaseQuantity, 
+                                              decreaseQuantity, 
+                                              location, 
+                                              setLocation, 
+                                              menu, 
+                                              setMenu, 
+                                              mainActive, 
+                                              handleMainActiveButton, 
+                                              setCartItems, 
+                                              t,
+                                              handleChangeLanguage,
+                                              setMainActive}}>
             {children}
         </ShoppingCartContext.Provider>
     )

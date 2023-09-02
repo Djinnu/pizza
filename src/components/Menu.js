@@ -1,5 +1,3 @@
-//import { useState } from 'react'
-//import menuItems from "../data/items.json"
 import MenuItem from './MenuItem'
 import Grid from '@mui/material/Grid';
 import { useShoppingCart } from '../context/ShoppingCartContext';

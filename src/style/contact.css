@@ -1,0 +1,25 @@
+.phoneButton {
+    width: 85%;
+    padding: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    border-radius: 10px;
+    border: 1px solid #dcdcdc;
+    background-color: white;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.facebookButton {
+    border-radius: 10px;
+    border: 1px solid #dcdcdc;
+    background-color: white;
+    cursor: pointer;
+    padding: 20px;
+}
+
+.phoneButton:hover, .facebookButton:hover {
+    background-color: #e9e9e9;
+}

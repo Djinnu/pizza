@@ -1,0 +1,151 @@
+{
+    "header": {
+        "tellimus": "Tellimus",
+        "kontakt": "Kontakt",
+        "sisene": "Sisene",
+        "ostukorv": "Ostukorv",
+        "profiil": "Profiil" 
+    },
+    "filter": {
+        "pitsad": "Pitsad",
+        "joogid": "Joogid",
+        "magus": "Magus",
+        "kõik": "Kõik",
+        "sealiha": "Sealiha",
+        "veiseliha": "Veiseliha",
+        "kanaliha": "Kanaliha",
+        "taimne": "Taimne",
+        "mereannid": "Mereannid"
+    },
+    "footer": {
+        "tingimused": "Tingimused",
+        "kinkekaart": "Kinkekaart",
+        "templikaart": "Templikaart",
+        "allergeenid": "Allergeenid",
+        "frantsiis": "Frantsiis",
+        "meieLugu": "Meie lugu",
+        "sponsorlus": "Sponsorlus",
+        "töökohad": "Töökohad",
+        "pizzakiosk": "Pizzakiosk",
+        "privaatsus": "Privaatsuspoliitika",
+        "kontakt": "Kontakt"
+    },
+    "location": {
+        "valiAsukoht": "Vali asukoht",
+        "sisene": "Sisene"
+    },
+    "open": {
+        "Esmaspäev": "Esmaspäev",
+        "Teisipäev": "Teisipäev",
+        "Kolmapäev": "Kolmapäev",
+        "Neljapäev": "Neljapäev",
+        "Reede": "Reede",
+        "Laupäev": "Laupäev",
+        "Pühapäev": "Pühapäev"
+    },
+    "contact": {
+        "kontakt": "Kontakt",
+        "lahtiolekuAjad": "Lahtioleku ajad",
+        "vahetaAsukohta": "Vaheta asukohta"
+    },
+    "cart": {
+        "ostukorv": "Ostukorv",
+        "kiosk": "Kiosk",
+        "kättesaamisaeg": "Kättesaamisaeg",
+        "tühi": "Sinu ostukorv on hetkel tühi",
+        "kokkuvõte": "Tellimuse kokkuvõte",
+        "soovitab": "Pizzakiosk soovitab",
+        "kokku": "Kokku",
+        "makse": "Makse",
+        "tagasi": "Menüüsse tagasi"
+    },
+    "ingredients": {
+        "Mango-jalapeno kaste": "Mango-jalapeno kaste",
+        "Juust": "Juust",
+        "Salaami": "Salaami",
+        "Peekon": "Peekon",
+        "Kebab": "Kebab",
+        "Sibul": "Sibul",
+        "Sinihallitusjuust": "Sinihallitusjuust",
+        "Küüslauk": "Küüslauk",
+        "Mango": "Mango",
+        "BBQ kaste": "BBQ kaste",
+        "Suitsukana": "Suitsukana",
+        "Virsik": "Virsik",
+        "Ananass": "Ananass",
+        "Paprika": "Paprika",
+        "Rohelised oliivid": "Rohelised oliivid",
+        "Suitsujuust": "Suitsujuust",
+        "Kaste": "Kaste",
+        "Marineeritud kurk": "Marineeritud kurk",
+        "Punane sibul": "Punane sibul",
+        "Päikesekuivatatud tomat": "Päikesekuivatatud tomat",
+        "Mozzarella": "Mozzarella",
+        "Basiilik": "Basiilik",
+        "Šampinjon": "Šampinjon",
+        "Tomat": "Tomat",
+        "Hakkliha": "Hakkliha",
+        "Jalapeno": "Jalapeno",
+        "Juustuäär": "Juustuäär",
+        "Krevetid": "Krevetid",
+        "Vorst": "Vorst",
+        "Topelt sink": "Topelt sink",
+        "Mustad oliivid": "Mustad oliivid",
+        "Pärlsibul": "Pärlsibul",
+        "Vegan juust": "Vegan juust",
+        "Vöner nisukebab": "Vöner nisukebab",
+        "Mais": "Mais",
+        "Värske kurk": "Värske kurk",
+        "Holy Cow kaste": "Holy Cow kaste",
+        "Kimchi": "Kimchi",
+        "Rukola": "Rukola",
+        "Marineeritud punane sibul": "Marineeritud punane sibul",
+        "Chipotle kaste": "Chipotle kaste",
+        "Röstitud sibul": "Röstitud sibul",
+        "Karri mango kaste": "Karri mango kaste",
+        "Tšillisädemed": "Tšillisädemed",
+        "Pesto": "Pesto",
+        "Cheddari kaste": "Cheddari kaste",
+        "Nachod": "Nachod",
+        "Lihapallid": "Lihapallid",
+        "Tuunikala-toorjuustu kreem": "Tuunikala-toorjuustu kreem",
+        "Kappar": "Kappar",
+        "Sink": "Sink",
+        "Pepperoni": "Pepperoni"
+    },
+    "alert": {
+        "hoiatus": "Hoiatus",
+        "text": "Kas soovid tõesti selle üksuse eemaldada?",
+        "kinnita": "Kinnita",
+        "tühista": "Tühista"
+    },
+    "snackbar": {
+        "message": "Toode lisatud ostukorvi"
+    },
+    "popover": {
+        "message": "Vali keel"
+    },
+    "menuItem": {
+        "alates": "alates",
+        "koostis": "Pitsa koostis",
+        "eemalda": "Eemalda kuni 2 asja",
+        "lisa": "Lisa kuni 4tk",
+        "lisaKoostisosa": "Lisa koostisosa",
+        "lisaOstukorvi": "Lisa ostukorvi "
+    },
+    "profile": {
+        "tere": "Tere",
+        "logOut": "Logi välja",
+        "andmed": "Minu andmed",
+        "nimi": "Nimi",
+        "perekonnanimi": "Perekonna nimi",
+        "e-mail": "E-posti aadress",
+        "kinnita": "Kinnita"  
+    },
+    "drinks": {
+        "lisa": "Lisa"
+    },
+    "locationOption": {
+        "ooteaeg": "Waiting time"
+    }
+}

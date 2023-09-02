@@ -31,10 +31,6 @@ const style = {
   padding: '0 10px 10px 10px',
 };
 
-const liha = [["Hakkliha", 1.5], ["Kebab", 2.5], ["Krevetid", 2.5], ["Lihapallid", 2.5], ["Peekon", 0.9], ["Pepperoni", 2.5], ["Salaami", 0.9], ["Sink", 1.5], ["Vorst", 1.5], ["Suitsukana",2.5]]
-const taimsed = [["Ananass", 0.9], ["Basiilik", 0.9] , ["Jalapeno", 0.9], ["Kappar", 1.5], ["Kimchi", 2.5], ["Mais", 0.9], ["Mango", 1.5], ["Mustad oliivid", 0.9], ["Paprika", 0.9], ["Tomat", 0.9], ["Marineeritud kurk", 0.9]]
-const kastmed = [["BBQ kaste", 1.5], ["Cheddar kaste", 1.5], ["Chipotle kaste", 2.5], ["Holy Cow kaste", 1.5], ["Karri mango kaste", 1.5], ["Mango-jalapeno kaste", 2.5]]
-const juust = [["Mozzarella", 2.5], ["Sinihallitusjuust", 0.9], ["Vegan juust", 3.8], ["Suitsujuust", 0.9], ["Juustuäär", 1.5]]
 
 
 function SlideTransition(props) {
@@ -42,14 +38,52 @@ function SlideTransition(props) {
 }
 
 const MenuItem = ({id, name, ingredients, priceSmall, priceLarge, imgUrl}) => {
-  const {addItem} = useShoppingCart()
-  //const quantity = getItemQuantity(id)
+  const {addItem, t} = useShoppingCart()
 
-  const ingredientsArr = ingredients.map(x => x[0])
+  // translating ingredients
+  const liha = [["Hakkliha", 1.5], ["Kebab", 2.5], ["Krevetid", 2.5], ["Lihapallid", 2.5], ["Peekon", 0.9], ["Pepperoni", 2.5], ["Salaami", 0.9], ["Sink", 1.5], ["Vorst", 1.5], ["Suitsukana",2.5]].map((x) => {
+    return x.map((x) => {
+      if(typeof x === 'string') {
+        return t(`ingredients.${x}`)
+      } else {
+        return x
+      }
+    })
+  })
+  const taimsed = [["Ananass", 0.9], ["Basiilik", 0.9] , ["Jalapeno", 0.9], ["Kappar", 1.5], ["Kimchi", 2.5], ["Mais", 0.9], ["Mango", 1.5], ["Mustad oliivid", 0.9], ["Paprika", 0.9], ["Tomat", 0.9], ["Marineeritud kurk", 0.9]].map((x) => {
+    return x.map((x) => {
+      if(typeof x === 'string') {
+        return t(`ingredients.${x}`)
+      } else {
+        return x
+      }
+    })
+  })
+  const kastmed = [["BBQ kaste", 1.5], ["Cheddari kaste", 1.5], ["Chipotle kaste", 2.5], ["Holy Cow kaste", 1.5], ["Karri mango kaste", 1.5], ["Mango-jalapeno kaste", 2.5]].map((x) => {
+    return x.map((x) => {
+      if(typeof x === 'string') {
+        return t(`ingredients.${x}`)
+      } else {
+        return x
+      }
+    })
+  })
+  const juust = [["Mozzarella", 2.5], ["Sinihallitusjuust", 0.9], ["Vegan juust", 3.8], ["Suitsujuust", 0.9], ["Juustuäär", 1.5]].map((x) => {
+    return x.map((x) => {
+      if(typeof x === 'string') {
+        return t(`ingredients.${x}`)
+      } else {
+        return x
+      }
+    })
+  })
+
+
+  const ingredientsArr = ingredients.map(x => t(`ingredients.${x[0]}`))
   const newIngredientsArr = ingredients.map((x,i) =>{
     return {
       id: i,
-      name: x[0],
+      name: t(`ingredients.${x[0]}`),
       quantity: 1,
       price: x[1]
     }
@@ -96,20 +130,24 @@ const MenuItem = ({id, name, ingredients, priceSmall, priceLarge, imgUrl}) => {
   const extra = {'Liha': extraMeat, 'Taimsed': extraVeggies, 'Kastmed': extraSauce, 'Juust': extraCheese}
   
   const [open, setOpen] = useState(false);
-  const handleOpen = () => setOpen(true);
+  const handleOpen = () => {
+    setOpen(true)
+    setItemIngredients(newIngredientsArr)
+    setExtraIng(extra)
+  };
   const handleClose = () => setOpen(false);
   const [snackOpen, setSnackOpen] = useState({snackIsOpen: false, vertical: 'top', horizontal: 'center', Transition: SlideTransition})
-  const { vertical, horizontal, snackIsOpen } = snackOpen
+  const { vertical, horizontal } = snackOpen
   const [activeName, setActiveName] = useState('Liha')
   const [orderSize, setOrderSize] = useState("Suur")
   const [removedIngredientsCount, setRemovedIngredientsCount] = useState(0)
   const [addedIngredientsCount, setAddedIngredientsCount] = useState(0)
-  const [itemIngredients, setItemIngredients] = useState(newIngredientsArr)
   const [extraIng, setExtraIng] = useState(extra)
   const [extraIngCost, setExtraIngCost] = useState(0)
   const [addedIngredients, setAddedIngredients] = useState([])
   const [removedIngredients, setRemovedIngredients] = useState([])
   const [quantity, setQuantity] = useState(1)
+  const [itemIngredients, setItemIngredients] = useState(newIngredientsArr)
   const handleSnackClick = () => setSnackOpen({...snackOpen, snackIsOpen: true})
   const handleSnackClose = (event, reason) => {
     if (reason === 'clickaway') {
@@ -118,7 +156,6 @@ const MenuItem = ({id, name, ingredients, priceSmall, priceLarge, imgUrl}) => {
 
     setSnackOpen({...snackOpen, snackIsOpen: false});
   };
-
 
 
   const handleActiveButton = (e) => {
@@ -290,11 +327,11 @@ const MenuItem = ({id, name, ingredients, priceSmall, priceLarge, imgUrl}) => {
   
   return (
     <div>
-      <div onClick={handleOpen} style={{width: "275px", display: "flex", flexDirection: "column", alignItems: "center", rowGap: "10px"}}>
-        <img src={imgUrl} alt={name} style={{width: "220px", heigth: "220px" }}/>
-        <h3>{name}</h3>
-        <p style={{fontSize: "12px", color: "rgb(149, 149, 149)", fontWeight: "bold", textAlign: "center"}}>{ingredients.map(x=> x[0]).join(", ")}</p>
-        <span style={{fontSize: "14px", color: "rgb(204, 0, 0)", fontWeight: "bold"}}>alates {formatCurrency(priceSmall)}</span>
+      <div onClick={handleOpen} className='menu-item'>
+        <img src={imgUrl} alt={name} style={{width: "220px", heigth: "220px", display: 'block', marginBottom: '-20px'}}/>
+        <h3 style={{fontFamily: 'Lora, serif'}}>{name}</h3>
+        <p style={{fontSize: "12px", color: "rgb(149, 149, 149)", fontWeight: "bolder", textAlign: "center", lineHeight: '14px', marginTop: 20}}>{ingredientsArr.join(", ")}</p>
+        <span style={{fontSize: "14px", color: "rgb(204, 0, 0)", fontWeight: "bold", marginTop: 'auto'}}>{t('menuItem.alates')} {formatCurrency(priceSmall)}</span>
       </div>
       <Modal
         open={open}
@@ -319,15 +356,15 @@ const MenuItem = ({id, name, ingredients, priceSmall, priceLarge, imgUrl}) => {
               <div>
                 <h1 style={{textAlign: 'center'}}>{name}</h1>
                 <img src={imgUrl} alt={name} style={{width: 220, heigth: 220, display: 'block', margin: "0 auto"}}/>
-                <p style={{fontSize: 14, textAlign: 'center', fontWeight: 600, marginBottom: 30}}>{ingredients.map(x=> x[0]).join(", ")}</p>
+                <p style={{fontSize: 14, textAlign: 'center', fontWeight: 600, marginBottom: 30}}>{ingredientsArr.join(", ")}</p>
               </div>
               <div style={{textAlign: 'center', marginBottom: 10}}>
                 <Button text="Suur 30cm" orderSize={orderSize} onClick={()=>setOrderSize("Suur")}/>
                 <Button text="Väike 20cm" orderSize={orderSize} onClick={()=>setOrderSize("Väike")}/>
               </div>
               <div>
-                <h3>Pitsa koostis</h3>
-                <p style={{fontSize: 12, color: '#999999', fontWeight: 'bolder'}}>Eemalda kuni 2 asja</p>
+                <h3>{t("menuItem.koostis")}</h3>
+                <p style={{fontSize: 12, color: '#999999', fontWeight: 'bolder', marginBottom: 10}}>{t("menuItem.eemalda")}</p>
                 {itemIngredients.map(ingredient => {
                   return (
                     <Ingredient
@@ -341,9 +378,9 @@ const MenuItem = ({id, name, ingredients, priceSmall, priceLarge, imgUrl}) => {
                 })}
               </div>
               <div>
-                <h3>Lisa koostisosa</h3>
-                <p style={{fontSize: 12, color: '#999999', fontWeight: 'bolder'}}>Lisa kuni 4tk</p>
-                <div style={{margin: "10px 0px"}}>
+                <h3 style={{marginTop: 40}}>{t('menuItem.lisaKoostisosa')}</h3>
+                <p style={{fontSize: 12, color: '#999999', fontWeight: 'bolder'}}>{t('menuItem.lisa')}</p>
+                <div style={{margin: "10px 0"}}>
                   <Button text="Liha" onClick={(e)=>{
                     handleActiveButton(e)
                     }} activeName={activeName}></Button>
@@ -355,18 +392,20 @@ const MenuItem = ({id, name, ingredients, priceSmall, priceLarge, imgUrl}) => {
                   <Button text="Juust" onClick={(e)=>{
                     handleActiveButton(e)
                     }} activeName={activeName}></Button>
-                  {extraIng[activeName].map((extraIngredient, i) => {
-                    return (
-                      <Ingredient
-                        extra={true} 
-                        extraIngredient={extraIngredient} 
-                        key={extraIngredient.id}
-                        removedIngredientsCount={removedIngredientsCount}
-                        addExtraIngredients={addExtraIngredients}
-                        addedIngredientsCount={addedIngredientsCount}
-                        removeExtraIngredients={removeExtraIngredients}/>
-                    )
-                  })}
+                  <div style={{marginTop: 20}}>
+                    {extraIng[activeName].map((extraIngredient, i) => {
+                      return (
+                        <Ingredient
+                          extra={true} 
+                          extraIngredient={extraIngredient} 
+                          key={extraIngredient.id}
+                          removedIngredientsCount={removedIngredientsCount}
+                          addExtraIngredients={addExtraIngredients}
+                          addedIngredientsCount={addedIngredientsCount}
+                          removeExtraIngredients={removeExtraIngredients}/>
+                      )
+                    })}
+                  </div>
                 </div>
               </div>
             </div>
@@ -376,7 +415,7 @@ const MenuItem = ({id, name, ingredients, priceSmall, priceLarge, imgUrl}) => {
                 <span>{quantity}</span>
                 <button className="btn-footer" onClick={()=> increaseQuantity()}><AddIcon color="success" fontSize="small"/></button>
               </div>
-              <Button text={orderSize === 'Suur' ? 'Lisa ostukorvi ' + formatCurrency((priceLarge + extraIngCost) * quantity)  : 'Lisa ostukorvi ' + formatCurrency((priceSmall + extraIngCost) * quantity)}
+              <Button text={orderSize === 'Suur' ? t('menuItem.lisaOstukorvi') + formatCurrency((priceLarge + extraIngCost) * quantity)  : t('menuItem.lisaOstukorvi') + formatCurrency((priceSmall + extraIngCost) * quantity)}
               active={true} 
               onClick={()=> {
                 addItem({id, name, addedIngredients, removedIngredients, orderSize, quantity, extraIngCost, price: orderSize === "Suur" ? priceLarge + extraIngCost : priceSmall + extraIngCost})
@@ -396,7 +435,7 @@ const MenuItem = ({id, name, ingredients, priceSmall, priceLarge, imgUrl}) => {
           <Alert 
             icon={<CheckCircleOutlineIcon fontSize="inherit" color='success'/>}
             onClose={handleSnackClose} severity="success" sx={{ width: '100%', backgroundColor: 'white', color: 'black' }} variant='filled'>
-            Toode lisatud ostukorvi!
+            {t("snackbar.message")}
           </Alert>
         </Paper>
       </Snackbar>

@@ -1,3 +1,16 @@
+.menu-item {
+    width: 275px;
+    height: 330px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    cursor: pointer;
+}
+
+
+
+
 .btn-footer {
     width: 50px;
     height: 50px;

@@ -20,9 +20,8 @@ const buttonDisabled = {
 }
 
 const Ingredient = ({extra, extraIngredient, ingredient, removeIngredients, removedIngredientsCount, addedIngredientsCount, addIngredients, addExtraIngredients, removeExtraIngredients}) => { 
-  
   return (
-        extra ? <div style={{display: "flex", justifyContent: "space-between", padding: "5px 0px", borderBottom: "1px solid gray", alignItems: "baseline"}}>
+        extra ? <div style={{display: "flex", justifyContent: "space-between", padding: "5px 0px", borderBottom: "1px solid #dcdcdc", alignItems: "baseline"}}>
                     <div>
                       {extraIngredient.quantity > 0 &&
                       <span style={{marginRight: "15px", color: '#cc0000', fontWeight:'bold'}}>+</span>
@@ -39,7 +38,7 @@ const Ingredient = ({extra, extraIngredient, ingredient, removeIngredients, remo
                         <button style={addedIngredientsCount === 4 ? {...buttonDisabled, color: 'green' } : extraIngredient.quantity === 3 ? {...buttonDisabled, color: 'green' } : buttonStyles} onClick={()=>addExtraIngredients(extraIngredient.id)}><AddIcon fontSize='14px' color="success"/></button>
                     </div>
                 </div> :
-                <div style={{display: "flex", justifyContent: "space-between", padding: "5px 0px", borderBottom: "1px solid gray", alignItems: "baseline"}}>
+                <div style={{display: "flex", justifyContent: "space-between", padding: "5px 0px", borderBottom: "1px solid #dcdcdc", alignItems: "baseline"}}>
                     <span>{ingredient.name}</span>
                     <div style={{width: "100px", display: "flex", justifyContent:"space-evenly", alignItems:"center"}}>
                         <button style={removedIngredientsCount === 2 ? {...buttonDisabled, color: 'red'} : ingredient.quantity === 0 ? {...buttonDisabled, color: 'red'} : {...buttonStyles, color: 'red'}} onClick={()=>removeIngredients(ingredient.id)}><RemoveIcon sx={{fontSize:'14px'}}/></button>

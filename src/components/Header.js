@@ -6,7 +6,7 @@ import AccountCircleOutlinedIcon from '@mui/icons-material/AccountCircleOutlined
 import ShoppingBasketOutlinedIcon from '@mui/icons-material/ShoppingBasketOutlined';
 import BasicPopover from './Popover';
 import '../style/header.css'
-import { NavLink } from "react-router-dom"
+import { NavLink, Link } from "react-router-dom"
 import { useShoppingCart } from '../context/ShoppingCartContext';
 import { formatCurrency } from '../utilities/formatCurrency'
 import LocationModule from './LocationModule';
@@ -18,14 +18,16 @@ const Header = () => {
   const handleClose = () => setOpen(false);
   const { loginWithRedirect, isAuthenticated } = useAuth0()
 
-  const {cartItems, location} = useShoppingCart()
+  const {cartItems, location, t} = useShoppingCart()
   const totalCost = cartItems.reduce((acc, c) => acc + ((c.price + c.extraIngCost) * c.quantity), 0)
 
   return (
     <header>
         <div className="left-header">
-            <div className="logo">
-              <img src="/images/PizzaKiosk.jpg" alt="lul"/>
+            <div className="logo" style={{marginRight: 30}}>
+              <Link to ="/">
+                <img src="/images/PizzaKiosk.jpg" alt="logo"/>
+              </Link>
             </div>
             <div className="header-tabs" style={{border: "1px solid #e0e0e0"}} onClick={handleOpen}>
               <LocationOnOutlinedIcon/>
@@ -36,32 +38,32 @@ const Header = () => {
             <NavLink to="/" 
                         className={({ isActive, isPending }) => isPending ? "pending" : isActive ? "header-tabs active" : "header-tabs"}>
                   <LocalPizzaOutlinedIcon/>
-                  Tellimus        
+                  {t("header.tellimus")}        
             </NavLink>
             <NavLink to="/contact" 
                         className={({ isActive, isPending }) => isPending ? "pending" : isActive ? "header-tabs active" : "header-tabs"}>
                 <PlaceOutlinedIcon/>
-                Kontakt
+                {t("header.kontakt")}
             </NavLink>
               {isAuthenticated ? <NavLink to="/profile"
                                     className={({ isActive, isPending }) => isPending ? "pending" : isActive ? "header-tabs active" : "header-tabs"}>
                                     <div style={{display: 'flex', alignItems:'center', gap: 5}}>
                                       <AccountCircleOutlinedIcon/>
-                                      Profiil
+                                      {t("header.profiil")}
                                     </div>  
                                 </NavLink> :
                                 <NavLink to="/login"
                                             className={({ isActive, isPending }) => isPending ? "pending" : isActive ? "header-tabs active" : "header-tabs"}>
                                     <div style={{display: 'flex', alignItems:'center', gap: 5}} onClick={() => loginWithRedirect()}>
                                       <AccountCircleOutlinedIcon/>
-                                      Sisene
+                                      {t("header.sisene")}
                                     </div>  
                                 </NavLink>
             }
             <NavLink to="/cart"
                         className={({ isActive, isPending }) => isPending ? "pending" : isActive ? "header-tabs active" : "header-tabs"}>
                 <ShoppingBasketOutlinedIcon/>
-                Ostukorv <span style={{color: "#959595"}}>{formatCurrency(totalCost)}</span>
+                {t("header.ostukorv")} <span style={{color: "#959595"}}>{formatCurrency(totalCost)}</span>
             </NavLink>
             <BasicPopover/>
             <LocationModule open={open} handleClose={handleClose}/>

@@ -22,7 +22,7 @@ const buttonStyle = {
 
 const CartItem = (item) => {
   const [open, setOpen] = useState(false);  
-  const {increaseQuantity, decreaseQuantity, setCartItems, cartItems} = useShoppingCart()
+  const {increaseQuantity, decreaseQuantity, setCartItems, cartItems, t} = useShoppingCart()
   const handleClickOpen = () => setOpen(true)
   const handleClose = (e) => {
     if(e.target.innerText === "TÜHISTA") {
@@ -44,17 +44,17 @@ const CartItem = (item) => {
         {item.removedIngredients.length > 0 || item.addedIngredients.length > 0 ?
         <div>
             <h4 style={{fontSize: '12px', marginTop: '10px', marginBottom: '5px'}}>Lisad</h4>
-            {item.removedIngredients.map(x => {
+            {item.removedIngredients.map((x, i) => {
             return (
-                <div style={{display: 'flex', alignItems: 'center'}}>
+                <div key={i} style={{display: 'flex', alignItems: 'center'}}>
                     <span><RemoveIcon sx={{color: '#cc0000', width: '14px', height: '14px'}}/></span>
                     <span style={{color: '#cc0000', fontSize: '12px', fontWeight: 'bold'}}>{x.name}</span>
                 </div>
             )
             })}
-            {item.addedIngredients.map(x => {
+            {item.addedIngredients.map((x, i) => {
             return (
-                <div style={{display: 'flex', alignItems: 'center', justifyContent: "space-between"}}>
+                <div key={i} style={{display: 'flex', alignItems: 'center', justifyContent: "space-between"}}>
                     <div style={{display: 'flex', alignItems: 'center'}}>
                         <span><AddIcon sx={{width: '14px', height: '14px', color: '#000000', opacity: 1}}/></span>
                         <span style={{color: 'black', fontSize: '12px', fontWeight: 'bold'}}>{x.name}</span>
@@ -68,7 +68,6 @@ const CartItem = (item) => {
         <div style={{marginTop: '10px'}}>
             <div style={{display: 'flex', justifyContent: "space-between", alignItems: "center", borderRadius: 38, border: "1px solid #dcdcdc", width: 105}}>
                 <button style={buttonStyle}><RemoveIcon sx={{color: "#cc0000"}} fontSize="small" onClick={()=>{
-                    console.log(item.quantity)
                     if(item.quantity === 1) {
                         handleClickOpen()
                     } else {
@@ -85,18 +84,18 @@ const CartItem = (item) => {
             aria-labelledby="alert-dialog-title"
             aria-describedby="alert-dialog-description">
             <DialogTitle id="alert-dialog-title">
-            {"HOIATUS"}
+            {t("alert.hoiatus")}
             </DialogTitle>
             <DialogContent>
             <DialogContentText id="alert-dialog-description">
-                Kas soovid tõesti selle üksuse eemaldada?
+                {t("alert.text")}
             </DialogContentText>
             </DialogContent>
             <DialogActions>
             <Button onClick={(e) => {
-                handleClose(e)}}>TÜHISTA</Button>
+                handleClose(e)}}>{t("alert.tühista")}</Button>
             <Button onClick={handleClose} autoFocus>
-                KINNITA
+                {t("alert.kinnita")}
             </Button>
             </DialogActions>
         </Dialog>
